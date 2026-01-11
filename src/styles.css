@@ -54,22 +54,23 @@ body {
     font-weight: 300;
 }
 
-
 #week-overview {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 70px;
 }
 
 .day-view {
     height: 150px;
     width: 100px;
+    padding: 15px 0;
     border: 1px solid #ced4da;
     border-radius: 20px;
 
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-direction: column;
-    gap: 15px;
 }
 
 .day-view-day {
