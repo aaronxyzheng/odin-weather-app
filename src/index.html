@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Test</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="main-content">
+            <div id="header">
+                <div id="location">Briarcliff</div>
+                <div id="date">1.6.26</div>
+                <div></div> <!--Empty Div there to format the flex-->
+            </div>
+            <div id="main-info">
+                <div id="temperature">
+                    <div id="temperature-number">20</div>
+                    <div id="degree-sign">°</div>
+                </div>
+                <div id="weather">Cloudy</div>
+            </div>
+            <div id="week-overview">
+                <div class="day-view">
+                    <div class="day-view-day"></div>
+                    <div class="day-view-temperature"></div>
+                    <div class="day-view-weather-code"></div>
+                </div>
+                <div class="day-view">
+                    <div class="day-view-day"></div>
+                    <div class="day-view-temperature"></div>
+                    <div class="day-view-weather-code"></div>
+                </div>
+                <div class="day-view">
+                    <div class="day-view-day"></div>
+                    <div class="day-view-temperature"></div>
+                    <div class="day-view-weather-code"></div>
+                </div>
+                <div class="day-view">
+                    <div class="day-view-day"></div>
+                    <div class="day-view-temperature"></div>
+                    <div class="day-view-weather-code"></div>
+                </div>
+                <div class="day-view">
+                    <div class="day-view-day"></div>
+                    <div class="day-view-temperature"></div>
+                    <div class="day-view-weather-code"></div>
+                </div>
+                <div class="day-view">
+                    <div class="day-view-day"></div>
+                    <div class="day-view-temperature"></div>
+                    <div class="day-view-weather-code"></div>
+                </div>
+            </div>
+        </div>
+        <div id="daily-view"></div>
+    </body>
 </html>

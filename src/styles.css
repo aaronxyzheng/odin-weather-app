@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    color: #495057;
+    font-family: "Inter", sans-serif;
+}
+
+#main-content {
+    flex: 1;
+    padding: 50px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 48px;
+}
+
+#header > div {
+    text-align: center;
+    width: 300px;
+}
+
+#main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#temperature {
+    font-size: 300px;
+    position: relative;
+}
+
+#temperature #degree-sign {
+    font-size: 250px;
+    position: absolute;
+    right: -80px;
+    bottom: 100px;
+}
+
+#main-info #weather {
+    font-size: 64px;
+    font-weight: 300;
+}
+
+
+#week-overview {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.day-view {
+    height: 150px;
+    width: 100px;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.day-view-day {
+    font-size: 16px;
+}
+
+.day-view-temperature {
+    font-size: 48px;
+}
+
+.day-view-weather-code {
+    font-size: 16px;
+    color: #ced4da;
+}
+
+#daily-view {
+    flex-basis: 450px;
+    background-color: rgba(233, 236, 239, 0.5);
+}
