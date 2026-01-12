@@ -1,4 +1,4 @@
-import updateSidebar from "./sidebar";
+import {updateSidebar} from "./sidebar";
 
 function bindDayView() {
     const dayViews = document.querySelectorAll(".day-view");
