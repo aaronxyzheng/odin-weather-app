@@ -1,50 +1,53 @@
 import "./styles.css";
-import getWeatherCode from "./src/weather-codes";
-import { parse, format } from "date-fns";
+import getWeatherCode from "./js/weather-codes";
+import APIService from "./js/api-service";
+import Chart from "chart.js/auto";
+import bindElements from "./js/event-binder";
 
-async function fetchData() {
-    const latitude = 41.144;
-    const longitude = -73.8413;
+class App {
+    constructor() {
+        this.apiService = new APIService();
 
-    const response = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,weather_code`
-    );
-    const responseJSON = await response.json();
-    console.log(responseJSON);
-    return responseJSON;
-}
-
-async function setData() {
-    const responseJSON = await fetchData();
-
-    //Set Main Info's
-    const mainTemperature = document.querySelector("#temperature-number");
-    mainTemperature.textContent = Math.round(
-        responseJSON.daily.temperature_2m_max[0]
-    );
-    const mainWeatherCode = document.querySelector("#weather");
-    mainWeatherCode.textContent = getWeatherCode(
-        responseJSON.daily.weather_code[0]
-    ).full;
-
-    for (let i = 1; i <= 6; i++) {
-        const dayView =
-            document.querySelector("#week-overview").children[i - 1];
-
-        const date = responseJSON.daily.time[i];
-        const dateObject = parse(date, "yyyy-MM-dd", new Date());
-        const dateDiv = dayView.querySelector(".day-view-day");
-        dateDiv.textContent = format(dateObject, "EEE");
-
-        const temperatureDiv = dayView.querySelector(".day-view-temperature");
-        const temperature = responseJSON.daily.temperature_2m_max[i];
-        temperatureDiv.textContent = Math.round(temperature);
-
-        const weatherCodeDiv = dayView.querySelector(".day-view-weather-code");
-        const weatherCode = getWeatherCode(responseJSON.daily.weather_code[i]).short;
-        weatherCodeDiv.textContent = weatherCode;
+        this.setData();
+        bindElements();
+        //this.createGraph();
     }
+
+    async setData() {
+        const responseJSON = await this.apiService.fetchData();
+
+        const mainTemperature = document.querySelector("#temperature-number");
+        mainTemperature.textContent = this.apiService.getCurrentTemperature(responseJSON);
+        const mainWeatherCode = document.querySelector("#weather");
+        mainWeatherCode.textContent = getWeatherCode(responseJSON.daily.weather_code[0]).full;
+
+        // Setting each of the day-view tokens
+        for (let i = 1; i <= 6; i++) {
+            const dayView = document.querySelector("#week-overview").children[i - 1];
+
+            const dateDiv = dayView.querySelector(".day-view-day");
+            dateDiv.textContent = this.apiService.getDayOfWeek(responseJSON, i);
+
+            const temperatureDiv = dayView.querySelector(".day-view-temperature");
+            const temperatureArray = this.apiService.parseJSON(responseJSON);
+            temperatureDiv.textContent = this.apiService.getHighestTemperature(temperatureArray, i);
+
+            const weatherCodeDiv = dayView.querySelector(".day-view-weather-code");
+            weatherCodeDiv.textContent = this.apiService.getWeatherCode(responseJSON, i).short;
+        }
+    }
+
+    // createGraph() {
+    //     const graph = document.querySelector("#graph")
+
+    //     const lables =
+    //     const data =
+
+    //     const chart = new Chart(graph, {
+    //         type: "line",
+    //         data: data
+    //     })
+    // }
 }
 
-fetchData();
-setData();
+new App();

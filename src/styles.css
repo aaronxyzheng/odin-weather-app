@@ -45,7 +45,7 @@ body {
 #temperature #degree-sign {
     font-size: 250px;
     position: absolute;
-    right: -80px;
+    right: -100px;
     bottom: 100px;
 }
 
@@ -64,13 +64,20 @@ body {
     height: 150px;
     width: 100px;
     padding: 15px 0;
-    border: 1px solid #ced4da;
     border-radius: 20px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+}
+
+.day-view:hover {
+    background-color: rgba(233, 236, 239, 0.5);
+}
+
+.day-view[selected="true"] {
+    border: 1px solid #ced4da;
 }
 
 .day-view-day {
@@ -89,4 +96,60 @@ body {
 #daily-view {
     flex-basis: 450px;
     background-color: rgba(233, 236, 239, 0.5);
+    padding: 50px 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    
+    display: flex;
+    gap: 80px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#meta-data {
+    font-size: 48px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+}
+
+#daily-view-temperature {
+    font-size: 60px;
+}
+
+#content-box-weather-code {
+    font-size: 28px;
+}
+
+.flexbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flexbox-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    height: 30px;
+    width: auto;
+}
+
+#graph {
+    width: 400px;
+    height: 300px;
+    border: 1px solid red;
 }

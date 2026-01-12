@@ -5,16 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <!-- Font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <div id="main-content">
             <div id="header">
                 <div id="location">Briarcliff</div>
                 <div id="date">1.6.26</div>
-                <div></div> <!--Empty Div there to format the flex-->
+                <div></div>
+                <!--Empty Div there to format the flex-->
             </div>
             <div id="main-info">
                 <div id="temperature">
@@ -24,38 +28,61 @@
                 <div id="weather">Cloudy</div>
             </div>
             <div id="week-overview">
-                <div class="day-view">
+                <div class="day-view" selected="true" token="1">
                     <div class="day-view-day"></div>
                     <div class="day-view-temperature"></div>
                     <div class="day-view-weather-code"></div>
                 </div>
-                <div class="day-view">
+                <div class="day-view" token="2">
                     <div class="day-view-day"></div>
                     <div class="day-view-temperature"></div>
                     <div class="day-view-weather-code"></div>
                 </div>
-                <div class="day-view">
+                <div class="day-view" token="3">
                     <div class="day-view-day"></div>
                     <div class="day-view-temperature"></div>
                     <div class="day-view-weather-code"></div>
                 </div>
-                <div class="day-view">
+                <div class="day-view" token="4">
                     <div class="day-view-day"></div>
                     <div class="day-view-temperature"></div>
                     <div class="day-view-weather-code"></div>
                 </div>
-                <div class="day-view">
+                <div class="day-view" token="5">
                     <div class="day-view-day"></div>
                     <div class="day-view-temperature"></div>
                     <div class="day-view-weather-code"></div>
                 </div>
-                <div class="day-view">
+                <div class="day-view" token="6">
                     <div class="day-view-day"></div>
                     <div class="day-view-temperature"></div>
                     <div class="day-view-weather-code"></div>
                 </div>
             </div>
         </div>
-        <div id="daily-view"></div>
+        <div id="daily-view">
+            <div id="meta-data">
+                <div id="greeting">Good Afternoon</div>
+                <div id="time">4:38pm</div>
+            </div>
+            <div id="content-box">
+                <div class="flexbox">
+                    <div id="daily-view-temperature">20°</div>
+                    <div id="flexbox-column">
+                        <div class="flexbox" id="wind-speed">
+                            <img src="./assets/wind.svg" />
+                            <div>6.1 mph</div>
+                        </div>
+                        <div class="flexbox" id="rain-percentage">
+                            <img src="./assets/rain.svg" />
+                            <div>90%</div>
+                        </div>
+                    </div>
+                </div>
+                <div>Feels like 19°</div>
+                <div id="content-box-weather-code">Cloudy</div>
+            </div>
+            <div id="graph"></div>
+        </div>
     </body>
 </html>
